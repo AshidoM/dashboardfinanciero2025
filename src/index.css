@@ -1,0 +1,248 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    transition: opacity 0.15s ease;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up-1 {
+  animation: fadeInUp 0.6s ease forwards;
+  animation-delay: 0.2s;
+}
+
+.animate-fade-in-up-2 {
+  animation: fadeInUp 0.6s ease forwards;
+  animation-delay: 0.4s;
+}
+
+.animate-fade-in-up-3 {
+  animation: fadeInUp 0.6s ease forwards;
+  animation-delay: 0.6s;
+}
+
+.animate-fade-out {
+  animation: fadeOut 0.3s ease forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+}
+
+/* Date Input Styles */
+input[type="date"] {
+  position: relative;
+  cursor: text;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  right: 8px;
+  filter: invert(1);
+  opacity: 0.5;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-clear-button {
+  display: none;
+}
+
+input[type="date"]::-webkit-datetime-edit {
+  padding: 0;
+}
+
+input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+  padding: 0;
+}
+
+input[type="date"]::-webkit-datetime-edit-text {
+  color: rgb(156 163 175);
+  padding: 0 2px;
+}
+
+input[type="date"]::-webkit-datetime-edit-month-field,
+input[type="date"]::-webkit-datetime-edit-day-field,
+input[type="date"]::-webkit-datetime-edit-year-field {
+  color: rgb(229 231 235);
+  font-weight: 500;
+  padding: 0 1px;
+}
+
+input[type="date"]::-webkit-datetime-edit-month-field:hover,
+input[type="date"]::-webkit-datetime-edit-day-field:hover,
+input[type="date"]::-webkit-datetime-edit-year-field:hover {
+  background-color: rgb(47 48 53);
+  border-radius: 2px;
+}
+
+input[type="date"]::-webkit-datetime-edit-month-field:focus,
+input[type="date"]::-webkit-datetime-edit-day-field:focus,
+input[type="date"]::-webkit-datetime-edit-year-field:focus {
+  background-color: rgb(59 130 246);
+  border-radius: 2px;
+  color: white;
+}
+
+/* Calendar Popup Styles */
+::-webkit-calendar-picker {
+  background: #25262b !important;
+  color: white !important;
+  border: 1px solid #2c2d31 !important;
+  border-radius: 8px !important;
+  padding: 16px !important;
+  margin-top: 8px !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4) !important;
+}
+
+::-webkit-calendar-picker thead {
+  border-bottom: 1px solid #2c2d31 !important;
+  padding-bottom: 8px !important;
+  margin-bottom: 8px !important;
+}
+
+::-webkit-calendar-picker th {
+  color: rgb(156 163 175) !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  padding: 8px 4px !important;
+  text-transform: uppercase !important;
+}
+
+::-webkit-calendar-picker td {
+  padding: 8px !important;
+  text-align: center !important;
+  color: rgb(229 231 235) !important;
+  font-size: 0.875rem !important;
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 6px !important;
+  transition: all 0.2s ease !important;
+}
+
+::-webkit-calendar-picker td:hover {
+  background-color: #2c2d31 !important;
+  cursor: pointer !important;
+}
+
+::-webkit-calendar-picker td.today {
+  color: rgb(59 130 246) !important;
+  font-weight: 500 !important;
+  position: relative !important;
+}
+
+::-webkit-calendar-picker td.today::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: 4px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 4px !important;
+  height: 4px !important;
+  background-color: rgb(59 130 246) !important;
+  border-radius: 50% !important;
+}
+
+::-webkit-calendar-picker td.selected {
+  background-color: rgb(59 130 246) !important;
+  color: white !important;
+  font-weight: 500 !important;
+}
+
+::-webkit-calendar-picker button {
+  color: rgb(229 231 235) !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 8px !important;
+  border-radius: 6px !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+}
+
+::-webkit-calendar-picker button:hover {
+  background-color: #2c2d31 !important;
+  cursor: pointer !important;
+}
+
+::-webkit-calendar-picker .calendar-week-header {
+  color: rgb(156 163 175) !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+}
