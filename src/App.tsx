@@ -83,19 +83,7 @@ function App() {
   }, []);
 
   if (showLockScreen) {
-    return (
-      <div className="transition-opacity duration-300">
-        <LockScreen
-          onClick={() => {
-            const element = document.querySelector(".animate-fade-in-up");
-            if (element) {
-              element.classList.add("animate-fade-out");
-              setTimeout(() => setShowLockScreen(false), 300);
-            }
-          }}
-        />
-      </div>
-    );
+    return <LockScreen onClick={() => setShowLockScreen(false)} />;
   }
 
   if (!isAuthenticated) {
