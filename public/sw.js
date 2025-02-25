@@ -34,9 +34,16 @@ self.addEventListener("fetch", (event) => {
         if (response) return response;
 
         return fetch(request).then((response) => {
-          const responseClone = response.clone();
+          if (
+            !response ||
+            response.status !== 200 ||
+            response.type !== "basic"
+          ) {
+            return response;
+          }
+          const responseToCache = response.clone();
           caches.open(ASSETS_CACHE).then((cache) => {
-            cache.put(request, responseClone);
+            cache.put(request, responseToCache);
           });
           return response;
         });
@@ -62,9 +69,12 @@ self.addEventListener("fetch", (event) => {
   event.respondWith(
     fetch(request)
       .then((response) => {
-        const responseClone = response.clone();
+        if (!response || response.status !== 200 || response.type !== "basic") {
+          return response;
+        }
+        const responseToCache = response.clone();
         caches.open(CACHE_NAME).then((cache) => {
-          cache.put(request, responseClone);
+          cache.put(request, responseToCache);
         });
         return response;
       })

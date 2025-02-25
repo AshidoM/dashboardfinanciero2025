@@ -13,14 +13,14 @@ import {
 } from "../ui/select";
 
 interface LoginFormProps {
-  onLogin: (userData: {
+  onLogin?: (userData: {
     email: string;
     role: string;
     username: string;
   }) => void;
 }
 
-function LoginForm({ onLogin }: LoginFormProps) {
+function LoginForm({ onLogin = () => {} }: LoginFormProps) {
   const [role, setRole] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
