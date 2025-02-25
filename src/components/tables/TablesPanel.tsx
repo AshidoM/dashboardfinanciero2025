@@ -118,11 +118,8 @@ const TablesPanel = () => {
                       <table className="w-full border-collapse">
                         <thead>
                           <tr className="border-b border-[#2C2D31]">
-                            <th className="text-left py-2 px-4 text-xs font-medium text-gray-400 w-1/2">
+                            <th className="text-left py-2 px-4 text-xs font-medium text-gray-400">
                               Campo
-                            </th>
-                            <th className="text-left py-2 px-4 text-xs font-medium text-gray-400 w-1/2">
-                              Tipo
                             </th>
                           </tr>
                         </thead>
@@ -134,9 +131,6 @@ const TablesPanel = () => {
                             >
                               <td className="py-2 px-4 text-sm text-gray-200">
                                 {field.name}
-                              </td>
-                              <td className="py-2 px-4 text-sm text-gray-400">
-                                {field.type}
                               </td>
                             </tr>
                           ))}
