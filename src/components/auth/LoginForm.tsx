@@ -20,7 +20,7 @@ interface LoginFormProps {
   }) => void;
 }
 
-const LoginForm = ({ onLogin }: LoginFormProps) => {
+function LoginForm({ onLogin }: LoginFormProps) {
   const [role, setRole] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -142,6 +142,6 @@ const LoginForm = ({ onLogin }: LoginFormProps) => {
       </Card>
     </div>
   );
-};
+}
 
 export default LoginForm;
